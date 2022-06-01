@@ -77,13 +77,31 @@ select {
     }
 }
 
+/* ------------- */
+/* CSS VARIABLES */
+/* ------------- */
+
+:root {
+  --clr-light: 173, 204, 199;
+  --clr-dark: 20, 76, 82;
+  --clr-green: 5, 50, 32;
+  --clr-orange: 211, 76, 38;
+}
+
 /* ------------ */
 /* CUSTOM RULES */
 /* ------------ */
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: beige;
+  background-color: rgb(var(--clr-light));
+}
+
+header {
+  background-color: rgb(var(--clr-dark));
+  color: rgb(245, 245, 245);
+  padding-block: 2rem;
+  text-align: center;
 }
 
 
