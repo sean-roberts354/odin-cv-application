@@ -28,8 +28,8 @@ export default class App extends React.Component {
                 0: {
                     id: 0,
                     company: "",
-                    title: "",
-                    description: "",
+                    jobTitle: "",
+                    jobDescription: "",
                     jobStartYear: "",
                     jobEndYear: "",
                 },
