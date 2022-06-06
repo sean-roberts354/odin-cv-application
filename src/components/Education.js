@@ -74,7 +74,10 @@ export default class Education extends React.Component {
                             <button
                                 type="button"
                                 onClick={() =>
-                                    this.props.removeEducationItem(item.id, area)
+                                    this.props.removeEducationItem(
+                                        item.id,
+                                        area
+                                    )
                                 }
                             >
                                 Remove Education
