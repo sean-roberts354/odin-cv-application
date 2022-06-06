@@ -6,7 +6,7 @@ export default class Work extends React.Component {
         const area = "work";
 
         return (
-            <fieldset>
+            <fieldset className="work-info">
                 <legend>Work Information</legend>
                 {work.map((item) => {
                     return (
@@ -85,10 +85,20 @@ export default class Work extends React.Component {
                                     }}
                                 />
                             </label>
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    this.props.removeWorkItem(item.id, area)
+                                }
+                            >
+                                Remove Work
+                            </button>
                         </div>
                     );
                 })}
-                
+                <button type="button" onClick={() => this.props.addWorkItem()}>
+                    Add Work
+                </button>
             </fieldset>
         );
     }
