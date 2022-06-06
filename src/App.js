@@ -38,7 +38,7 @@ export default class App extends React.Component {
 
         this.handleInput = this.handleInput.bind(this);
         this.addEducationItem = this.addEducationItem.bind(this);
-        this.removeEducationItem = this.removeEducationItem.bind(this);
+        this.removeEducationWorkItem = this.removeEducationWorkItem.bind(this);
     }
 
     handleInput(e, area, id) {
@@ -80,15 +80,15 @@ export default class App extends React.Component {
         }));
     }
 
-    removeEducationItem(educationID) {
-        let educationStateArray = Object.entries(this.state.education);
-        let newEducationState = Object.fromEntries(
-            educationStateArray.filter((item, i) => item[1].id !== educationID)
+    removeEducationWorkItem(itemID, area) {
+        let stateArray = Object.entries(this.state[area]);
+        let newState = Object.fromEntries(
+            stateArray.filter((item, i) => item[1].id !== itemID)
         );
 
         this.setState(() => ({
-            education: {
-                ...newEducationState,
+            [area]: {
+                ...newState,
             },
         }));
     }
@@ -103,7 +103,7 @@ export default class App extends React.Component {
                             data={this.state}
                             handleInput={this.handleInput}
                             addEducationItem={this.addEducationItem}
-                            removeEducationItem={this.removeEducationItem}
+                            removeEducationWorkItem={this.removeEducationWorkItem}
                         />
                     ) : (
                         <Overview />
