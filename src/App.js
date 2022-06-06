@@ -38,6 +38,7 @@ export default class App extends React.Component {
 
         this.handleInput = this.handleInput.bind(this);
         this.addEducationItem = this.addEducationItem.bind(this);
+        this.addWorkItem = this.addWorkItem.bind(this);
         this.removeEducationWorkItem = this.removeEducationWorkItem.bind(this);
     }
 
@@ -80,6 +81,25 @@ export default class App extends React.Component {
         }));
     }
 
+    addWorkItem() {
+        let stateArray = Object.keys(this.state.work);
+        let newID = parseInt(stateArray[stateArray.length - 1]) + 1;
+
+        this.setState((prevState) => ({
+            work: {
+                ...prevState.work,
+                [newID]: {
+                    id: newID,
+                    company: "",
+                    jobTitle: "",
+                    jobDescription: "",
+                    jobStartYear: "",
+                    jobEndYear: "",
+                }
+            }
+        }))
+    }
+
     removeEducationWorkItem(itemID, area) {
         let stateArray = Object.entries(this.state[area]);
         let newState = Object.fromEntries(
@@ -103,6 +123,7 @@ export default class App extends React.Component {
                             data={this.state}
                             handleInput={this.handleInput}
                             addEducationItem={this.addEducationItem}
+                            addWorkItem={this.addWorkItem}
                             removeEducationWorkItem={this.removeEducationWorkItem}
                         />
                     ) : (
