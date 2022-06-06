@@ -1,6 +1,7 @@
 import React from "react";
 import GeneralInfo from "./GeneralInfo";
 import Education from "./Education";
+import Work from './Work';
 
 export default class Form extends React.Component {
     render() {
@@ -14,7 +15,13 @@ export default class Form extends React.Component {
                     data={this.props.data.education}
                     handleInput={this.props.handleInput}
                     addEducationItem={this.props.addEducationItem}
-                    removeEducationItem={this.props.removeEducationItem}
+                    removeEducationItem={this.props.removeEducationWorkItem}
+                />
+                <Work 
+                    data={this.props.data.work}
+                    handleInput={this.props.handleInput}
+                    addWorkItem={this.props.addWorkItem}
+                    removeWorkItem={this.props.removeEducationWorkItem}
                 />
             </form>
         );
