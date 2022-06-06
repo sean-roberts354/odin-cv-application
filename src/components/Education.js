@@ -71,25 +71,24 @@ export default class Education extends React.Component {
                                     }}
                                 />
                             </label>
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    this.props.removeEducationItem(item.id)
+                                }
+                            >
+                                Remove Education
+                            </button>
                         </div>
                     );
                 })}
-                <button type="button" onClick={this.props.addEducationItem}>
+                <button
+                    type="button"
+                    onClick={() => this.props.addEducationItem()}
+                >
                     Add Education
                 </button>
             </fieldset>
         );
     }
 }
-
-/* else if (area === "education" || area === "work") {
-    this.setState(prevState => ({
-        [area]: {
-            ...prevState[area],
-            [id]: {
-                ...prevState[area][id],
-                [e.target.id]: e.target.value,
-            }
-        }
-    }))
-} */

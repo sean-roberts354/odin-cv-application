@@ -14,6 +14,7 @@ export default class Form extends React.Component {
                     data={this.props.data.education}
                     handleInput={this.props.handleInput}
                     addEducationItem={this.props.addEducationItem}
+                    removeEducationItem={this.props.removeEducationItem}
                 />
             </form>
         );
