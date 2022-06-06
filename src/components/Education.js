@@ -8,9 +8,9 @@ export default class Education extends React.Component {
         return (
             <fieldset className="education-info">
                 <legend>Education</legend>
-                {education.map((item, i) => {
+                {education.map((item) => {
                     return (
-                        <div className="education-item">
+                        <div key={`ed${item.id}`} className="education-item">
                             <label htmlFor="school">
                                 School:
                                 <input
