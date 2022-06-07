@@ -104,4 +104,26 @@ header {
   text-align: center;
 }
 
+main {
+    margin: auto;
+    max-width: fit-content;
+    margin-block: 2rem;
+}
 
+.general-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.education-info, .work-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.education-item, .work-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
