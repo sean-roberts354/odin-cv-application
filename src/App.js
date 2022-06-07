@@ -10,31 +10,16 @@ export default class App extends React.Component {
         this.state = {
             isEdit: true,
             general: {
-                fname: "Sean",
-                lname: "Roberts",
-                email: "test@gmail",
-                phonenum: "1252223333",
+                fname: "",
+                lname: "",
+                email: "",
+                phonenum: "",
             },
             education: {
-                0: {
-                    id: 0,
-                    school: "",
-                    program: "",
-                    edStartYear: "",
-                    edEndYear: "",
-                    isCurrent: false,
-                },
+                
             },
             work: {
-                0: {
-                    id: 0,
-                    company: "",
-                    jobTitle: "",
-                    jobDescription: "",
-                    jobStartYear: "",
-                    jobEndYear: "",
-                    isCurrent: false,
-                },
+                
             },
         };
 
@@ -83,6 +68,10 @@ export default class App extends React.Component {
         let stateArray = Object.keys(this.state.education);
         let newID = parseInt(stateArray[stateArray.length - 1]) + 1;
 
+        if (isNaN(newID)) {
+            newID = 0;
+        }
+
         this.setState((prevState) => ({
             education: {
                 ...prevState.education,
@@ -101,6 +90,10 @@ export default class App extends React.Component {
     addWorkItem() {
         let stateArray = Object.keys(this.state.work);
         let newID = parseInt(stateArray[stateArray.length - 1]) + 1;
+
+        if (isNaN(newID)) {
+            newID = 0;
+        }
 
         this.setState((prevState) => ({
             work: {
