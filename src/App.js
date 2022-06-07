@@ -43,6 +43,7 @@ export default class App extends React.Component {
         this.addEducationItem = this.addEducationItem.bind(this);
         this.addWorkItem = this.addWorkItem.bind(this);
         this.removeEducationWorkItem = this.removeEducationWorkItem.bind(this);
+        this.toggleEdit = this.toggleEdit.bind(this);
     }
 
     handleInput(e, area, id) {
@@ -130,6 +131,12 @@ export default class App extends React.Component {
         }));
     }
 
+    toggleEdit() {
+        this.setState((prevState) => ({
+            isEdit: !prevState.isEdit,
+        }));
+    }
+
     render() {
         return (
             <div>
@@ -145,9 +152,10 @@ export default class App extends React.Component {
                             removeEducationWorkItem={
                                 this.removeEducationWorkItem
                             }
+                            toggleEdit={this.toggleEdit}
                         />
                     ) : (
-                        <Overview />
+                        <Overview toggleEdit={this.toggleEdit} />
                     )}
                 </main>
             </div>

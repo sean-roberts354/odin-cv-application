@@ -25,6 +25,7 @@ export default class Form extends React.Component {
                     addWorkItem={this.props.addWorkItem}
                     removeWorkItem={this.props.removeEducationWorkItem}
                 />
+                <button type="button" onClick={this.props.toggleEdit}>Submit Changes</button>
             </form>
         );
     }
