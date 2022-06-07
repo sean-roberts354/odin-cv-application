@@ -70,21 +70,46 @@ export default class Work extends React.Component {
                                     }}
                                 />
                             </label>
-                            <label htmlFor="jobEndYear">
-                                End Date:
-                                <input
-                                    type="date"
-                                    id="jobEndYear"
-                                    value={item.jobEndYear}
-                                    onChange={(e) => {
-                                        this.props.handleInput(
-                                            e,
-                                            area,
-                                            item.id
-                                        );
-                                    }}
-                                />
-                            </label>
+                            <div>
+                                <label htmlFor="jobEndYear">
+                                    End Date:
+                                    {item.isCurrent ? (
+                                        <input
+                                            type="date"
+                                            id="jobEndYear"
+                                            value={item.jobEndYear}
+                                            disabled
+                                        />
+                                    ) : (
+                                        <input
+                                            type="date"
+                                            id="jobEndYear"
+                                            value={item.jobEndYear}
+                                            onChange={(e) => {
+                                                this.props.handleInput(
+                                                    e,
+                                                    area,
+                                                    item.id
+                                                );
+                                            }}
+                                        />
+                                    )}
+                                </label>
+                                <label htmlFor="isCurrent">
+                                    <input
+                                        type="checkbox"
+                                        id="isCurrent"
+                                        value={item.isCurrent}
+                                        onChange={() => {
+                                            this.props.markItemCurrent(
+                                                item.id,
+                                                area
+                                            );
+                                        }}
+                                    />
+                                    Current?
+                                </label>
+                            </div>
                             <button
                                 type="button"
                                 onClick={() =>

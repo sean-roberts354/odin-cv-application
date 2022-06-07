@@ -22,6 +22,7 @@ export default class App extends React.Component {
                     program: "",
                     edStartYear: "",
                     edEndYear: "",
+                    isCurrent: false,
                 },
             },
             work: {
@@ -32,11 +33,13 @@ export default class App extends React.Component {
                     jobDescription: "",
                     jobStartYear: "",
                     jobEndYear: "",
+                    isCurrent: false,
                 },
             },
         };
 
         this.handleInput = this.handleInput.bind(this);
+        this.markItemCurrent = this.markItemCurrent.bind(this);
         this.addEducationItem = this.addEducationItem.bind(this);
         this.addWorkItem = this.addWorkItem.bind(this);
         this.removeEducationWorkItem = this.removeEducationWorkItem.bind(this);
@@ -63,6 +66,18 @@ export default class App extends React.Component {
         }
     }
 
+    markItemCurrent(itemID, area) {
+        this.setState((prevState) => ({
+            [area]: {
+                ...prevState[area],
+                [itemID]: {
+                    ...prevState[area][itemID],
+                    isCurrent: !prevState[area][itemID].isCurrent,
+                },
+            },
+        }));
+    }
+
     addEducationItem() {
         let stateArray = Object.keys(this.state.education);
         let newID = parseInt(stateArray[stateArray.length - 1]) + 1;
@@ -76,6 +91,7 @@ export default class App extends React.Component {
                     program: "",
                     edStartYear: "",
                     edEndYear: "",
+                    isCurrent: false,
                 },
             },
         }));
@@ -95,9 +111,10 @@ export default class App extends React.Component {
                     jobDescription: "",
                     jobStartYear: "",
                     jobEndYear: "",
-                }
-            }
-        }))
+                    isCurrent: false,
+                },
+            },
+        }));
     }
 
     removeEducationWorkItem(itemID, area) {
@@ -122,9 +139,12 @@ export default class App extends React.Component {
                         <Form
                             data={this.state}
                             handleInput={this.handleInput}
+                            markItemCurrent={this.markItemCurrent}
                             addEducationItem={this.addEducationItem}
                             addWorkItem={this.addWorkItem}
-                            removeEducationWorkItem={this.removeEducationWorkItem}
+                            removeEducationWorkItem={
+                                this.removeEducationWorkItem
+                            }
                         />
                     ) : (
                         <Overview />
